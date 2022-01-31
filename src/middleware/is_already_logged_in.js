@@ -1,11 +1,8 @@
 import React from "react";
-import {Route, Redirect} from 'react-router-dom';
-
-export const LoggedInRoute =({component:Component, ...rest})=>(
-    <Route {...rest} render={props=>(
-        localStorage.getItem('token') ?
-            <Redirect to={{pathname: '/' ,state:{from:props.location}}}/>
-            :<Component {...props}/>
-    )}
-    />
-)
+import { Navigate} from 'react-router-dom';
+  
+export const LoggedInRoute = ({ children }) => {
+    const authed = localStorage.getItem('token')
+    
+    return authed === null ?  children :<Navigate to="/" />;
+  }

@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "../views/home";
 import { PrivateRoute } from "../middleware/isLoggedinRoute";
+import { LoggedInRoute } from "../middleware/is_already_logged_in";
 import { LandingPrivateRoute } from "../middleware/landing_page_middleware";
 import Login from "../views/auth/login";
 import Settings from "../views/settings";
@@ -27,8 +28,8 @@ function AppRoutes() {
               </PrivateRoute>
             }
           />
-          <Route exact path="/login" name="Login" element={<Login />} />
-          <Route exact path="/register" name="Login" element={<Register />} />
+          <Route exact path="/login" name="Login" element={<LoggedInRoute><Login /></LoggedInRoute>} />
+          <Route exact path="/register" name="Login" element={<LoggedInRoute><Register /></LoggedInRoute>} />
           <Route exact path="/landing" name="Login" element={<LandingPage />} />
         </Routes>
       </div>
