@@ -411,7 +411,7 @@ class LandingPage extends Component {
                       placeholder="Enter your name..."
                       data-sb-validations="required"
                     />
-                    <label for="name">Full name</label>
+                    <label htmlFor="name">Full name</label>
                     <div
                       className="invalid-feedback"
                       data-sb-feedback="name:required"
@@ -428,7 +428,7 @@ class LandingPage extends Component {
                       placeholder="name@example.com"
                       data-sb-validations="required,email"
                     />
-                    <label for="email">Email address</label>
+                    <label htmlFor="email">Email address</label>
                     <div
                       className="invalid-feedback"
                       data-sb-feedback="email:required"
@@ -451,7 +451,7 @@ class LandingPage extends Component {
                       placeholder="(123) 456-7890"
                       data-sb-validations="required"
                     />
-                    <label for="phone">Phone number</label>
+                    <label htmlFor="phone">Phone number</label>
                     <div
                       className="invalid-feedback"
                       data-sb-feedback="phone:required"
@@ -461,7 +461,7 @@ class LandingPage extends Component {
                   </div>
 
                   <div className="form-floating mb-3">
-                    <label for="message">Message</label>
+                    <label htmlFor="message">Message</label>
                     <div
                       className="invalid-feedback"
                       data-sb-feedback="message:required"

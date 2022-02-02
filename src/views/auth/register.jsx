@@ -1,11 +1,42 @@
 import React, { Component } from "react";
 import {Link} from "react-router-dom";
+import { connect } from "react-redux";
+import {register} from "../../state/actions/auth_action";
 
 class Register extends Component {
   state = {};
+  constructor(props) {
+    super(props);
+    this.state = {
+      name:"",
+      email: "",
+      password: "",
+    };
+    this.handleInputChange = this.handleInputChange.bind(this);
+  }
+
+  handleInputChange = (event) => {
+    const target = event.target;
+    const value = target.type === "checkbox" ? target.checked : target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value,
+    });
+  };
+
+  register = (e) => {
+    let loginState = {
+      email: this.state.email,
+      password: this.state.password,
+    };
+    e.preventDefault();
+    this.props.register(loginState, this.props.history);
+  };
   render() {
-    return (
-      <div class="vh-100">
+    var namelegnth = 3;
+       return (
+      <div className="vh-100">
         <div className="authincation h-100">
           <div className="container h-100">
             <div className="row justify-content-center h-100 align-items-center">
@@ -20,7 +51,7 @@ class Register extends Component {
                           </a>
                         </div>
                         <h4 className="text-center mb-4">Sign up your account</h4>
-                        <form action="https://tixia.dexignzone.com/xhtml/index.html">
+                        <form action="POST" onSubmit={this.register}>
                           <div className="form-group">
                             <label className="mb-1">
                               <strong>Username</strong>
@@ -29,6 +60,11 @@ class Register extends Component {
                               type="text"
                               className="form-control"
                               placeholder="username"
+                              required
+                              name="name"
+                              minLength={namelegnth}
+                              value={this.state.name}
+                              onChange={this.handleInputChange}
                             />
                           </div>
                           <div className="form-group">
@@ -39,6 +75,10 @@ class Register extends Component {
                               type="email"
                               className="form-control"
                               placeholder="hello@example.com"
+                              name="email"
+                              value={this.state.email}
+                              required
+                              onChange={this.handleInputChange}
                             />
                           </div>
                           <div className="form-group">
@@ -48,7 +88,11 @@ class Register extends Component {
                             <input
                               type="password"
                               className="form-control"
-                              value="Password"
+                              
+                              name="password"
+                              required
+                              value={this.state.password}
+                              onChange={this.handleInputChange}
                             />
                           </div>
                           <div className="text-center mt-4">
@@ -81,4 +125,17 @@ class Register extends Component {
   }
 }
 
-export default Register;
+const mapStateToProps = (state) => {
+  return {
+    regResponse: state.auth.authResponse,
+   
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    register: (creds, history) => dispatch(register(creds, history)),
+    
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Register);

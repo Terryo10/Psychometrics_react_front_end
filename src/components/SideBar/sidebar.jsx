@@ -30,8 +30,8 @@ class SideBar extends Component {
                     }}
                     to="/login"
                   >
-                   <i class="flaticon-381-exit-1"></i>
-							<span class="nav-text">Logout</span>
+                   <i className="flaticon-381-exit-1"></i>
+							<span className="nav-text">Logout</span>
                   </Link>
                 </li>
               )}

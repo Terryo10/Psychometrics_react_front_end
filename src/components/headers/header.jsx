@@ -92,8 +92,8 @@ class AppHeader extends Component {
                           <li>
                             <div className="timeline-panel">
                               <div className="media me-2">
-                                <image
-                                  alt="image"
+                                <img
+                                  alt=""
                                   width="50"
                                   src="xhtml/images/avatar/1.jpg"
                                 />
@@ -139,8 +139,8 @@ class AppHeader extends Component {
                           <li>
                             <div className="timeline-panel">
                               <div className="media me-2">
-                                <image
-                                  alt="image"
+                                <img
+                                  alt=""
                                   width="50"
                                   src="xhtml/images/avatar/1.jpg"
                                 />
@@ -197,10 +197,10 @@ class AppHeader extends Component {
                       role="button"
                       data-bs-toggle="dropdown"
                     >
-                      <image
+                      <img
                         src="xhtml/images/profile/pic1.jpg"
                         width="20"
-                        alt="image"
+                        alt=""
                       />
                     </a>
                     <div className="dropdown-menu dropdown-menu-end">
@@ -239,7 +239,7 @@ class AppHeader extends Component {
             </nav>
           </div>
         </div>
-        <SideBar/>
+        <SideBar />
       </div>
     );
   }
