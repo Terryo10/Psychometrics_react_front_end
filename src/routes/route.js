@@ -7,6 +7,7 @@ import Login from "../views/auth/login";
 import Settings from "../views/settings";
 import Register from "../views/auth/register";
 import LandingPage from "../views/landing";
+import Profile from "../views/profile";
 
 function AppRoutes() {
   return (
@@ -16,6 +17,11 @@ function AppRoutes() {
           <Route exact path="/" name="Home" element={
             <LandingPrivateRoute>
                 <Home />
+            </LandingPrivateRoute>
+          } />
+          <Route exact path="/profile" name="Home" element={
+            <LandingPrivateRoute>
+                <Profile/>
             </LandingPrivateRoute>
           } />
           <Route

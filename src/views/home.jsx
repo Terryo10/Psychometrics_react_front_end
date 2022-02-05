@@ -6,8 +6,8 @@ class Home extends Component {
     render() { 
         return (
             <div>
-                <AppHeader/>
-                <h1> Home Page </h1>
+                <AppHeader pagename="DashBoard"/>
+                <h1> Profile </h1>
             </div>
         );
     }

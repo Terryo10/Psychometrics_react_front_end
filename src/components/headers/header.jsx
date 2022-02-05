@@ -1,9 +1,14 @@
 import React, { Component } from "react";
 import SideBar from "../SideBar/sidebar";
+import UserData from "../../mixins/user_data";
+import {Link} from "react-router-dom";
 
 class AppHeader extends Component {
   state = {};
+
   render() {
+  const userData = new UserData();
+  var data = userData.getUserData();
     return (
       <div>
         <div className="nav-header">
@@ -51,7 +56,7 @@ class AppHeader extends Component {
             <nav className="navbar navbar-expand">
               <div className="collapse navbar-collapse justify-content-between">
                 <div className="header-left">
-                  <div className="dashboard_bar">Dashboard</div>
+                  <div className="dashboard_bar">{this.props.pagename}</div>
                 </div>
 
                 <ul className="navbar-nav header-right">
@@ -225,14 +230,14 @@ class AppHeader extends Component {
                     </div>
                   </li>
                   <li className="dropdown schedule-event primary">
-                    <a
-                      href="/"
+                    <Link
+                      to="/profile"
                       className="btn btn-primary btn-rounded event-btn"
                     >
-                      <span className="d-none d-xl-inline-block">Schedule</span>{" "}
-                      <span className="d-none d-lg-inline-block">Event(5)</span>
+                      <span className="d-none d-xl-inline-block">{data.name}</span>{" "}
+                      
                       <i className="fa fa-caret-right scale3 ms-2 d-none d-sm-inline-block"></i>
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
